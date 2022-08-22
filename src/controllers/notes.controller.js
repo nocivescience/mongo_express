@@ -6,10 +6,13 @@ export const createNewNote = async (req, res) => {
   const { title, description } = req.body;
   const errors = [];
   if (!title) {
-    errors.push({ text: "Please Write a Title." });
+    errors.push({ texto: "Please Write a Title." });
   }
   if (!description) {
-    errors.push({ text: "Please Write a Description" });
+    errors.push({ texto: "Please Write a Description" });
+  }
+  if(!title&&!description){
+    errors.push({texto : 'avispate po weon'})
   }
   if (errors.length > 0)
     return res.render("notes/new-note", {
